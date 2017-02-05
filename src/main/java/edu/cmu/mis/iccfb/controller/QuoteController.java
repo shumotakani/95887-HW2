@@ -24,18 +24,37 @@ public class QuoteController {
     
     @RequestMapping("/api/quote/random")
     public Quote random() {
+        System.out.println("QC random() is running");
         return quoteService.randomQuote();
+    }
+    
+    @RequestMapping("/api/quote/list")
+    public Quote[] list(@RequestBody Author author) {
+        //or can try passing quote
+        System.out.println("You are looking for quotes from " + author);
+        return quoteService.findByAuthor(author);
     }
     
     @RequestMapping(value = "/api/quote", method = RequestMethod.POST)
     public void saveQuote(@RequestBody Quote quote) {
-        System.out.println(quote);
+        
+        //Not working is just name is there. Should be a json file
+//        Author au = new Author("Douglas Adams");
+//        authorService.save(au);
+//        Quote[] q = quoteService.findByAuthor(au);
+//        System.out.println(q);
+//        System.out.println("*******************");
+//        System.out.println(q[0].getText());
+//        System.out.println("*******************");
         
         Author a = authorService.findByName(quote.getAuthor().getName());
         
         if (a == null) {
-            System.out.println("Saving author");
+            System.out.println("----------Saving as a !!!NEW!!! author----------");
             authorService.save(quote.getAuthor());
+        } else {
+            System.out.println("----------Saving as a !!!OLD!!! author----------");
+            quote.setAuthor(a);
         }
         
         System.out.println("Saving quote");

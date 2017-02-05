@@ -18,14 +18,14 @@ app.config(function($urlRouterProvider, $stateProvider) {
             templateUrl : "templates/quote.html",
             controller: "RandomQuoteCtrl"
         })
+        .state("list", {
+            url: "/list",
+            templateUrl : "templates/list.html",
+            controller: "ListQuoteCtrl"
+        })
         .state("add", {
             url: "/add",
             templateUrl : "templates/add.html",
             controller: "SaveQuoteCtrl"
-        })
-	    .state("list",{
-	        url: "/list",
-	        templateUrl : "templates/list.html",
-	        controller: "ListQuoteCtrl"
-	    });
+        });
 });

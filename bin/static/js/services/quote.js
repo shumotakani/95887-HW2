@@ -9,4 +9,6 @@ angular.module('app.services', ['ngResource'])
 			url: '/api/quote/random'
 		}
 	});
+	
+	
 });
