@@ -19,7 +19,7 @@ app.config(function($urlRouterProvider, $stateProvider) {
             controller: "RandomQuoteCtrl"
         })
         .state("list", {
-            url: "/list",
+        	url: "/list/:authorName",
             templateUrl : "templates/list.html",
             controller: "ListQuoteCtrl"
         })

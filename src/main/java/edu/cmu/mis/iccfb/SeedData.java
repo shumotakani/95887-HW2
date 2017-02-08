@@ -49,9 +49,16 @@ public class SeedData {
                 "https://en.wikiquote.org/wiki/Albert_Einstein", 
                 a3);
         
+        Quote q4 = new Quote(
+                "TEST " +
+                "TEXT",
+                "TEST SOURCE", 
+                a1);
+        
         quoteService.save(q1);
         quoteService.save(q2);
         quoteService.save(q3);
+        quoteService.save(q4);
         
         log.info("Quoates found with findAll():");
         log.info("-------------------------------");

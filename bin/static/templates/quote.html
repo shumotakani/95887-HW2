@@ -5,7 +5,7 @@
 </div>
 <div class="row">
  <div class="col-md-12">
-  <a ui-sref="list" class="quote-list">
+  <a ui-sref="list({authorName: quote.author.name })" class="quote-list">
   	<p class="text-right">- {{quote.author.name}}</p>
   </a>
  </div>

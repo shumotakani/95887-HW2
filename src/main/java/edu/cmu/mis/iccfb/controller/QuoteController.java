@@ -29,10 +29,10 @@ public class QuoteController {
     }
     
     @RequestMapping("/api/quote/list")
-    public Quote[] list(@RequestBody Author author) {
-        //or can try passing quote
-        System.out.println("You are looking for quotes from " + author);
-        return quoteService.findByAuthor(author);
+    public Quote[] list(String authorName) {
+        //pass the author name into the Controller use CRUD to solve the issue
+        System.out.println("You are looking for quotes from " + authorName);
+        return quoteService.findByAuthor(authorService.findByName(authorName));
     }
     
     @RequestMapping(value = "/api/quote", method = RequestMethod.POST)

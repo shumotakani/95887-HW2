@@ -18,6 +18,11 @@ app.config(function($urlRouterProvider, $stateProvider) {
             templateUrl : "templates/quote.html",
             controller: "RandomQuoteCtrl"
         })
+        .state("list", {
+        	url: "/list/:authorName",
+            templateUrl : "templates/list.html",
+            controller: "ListQuoteCtrl"
+        })
         .state("add", {
             url: "/add",
             templateUrl : "templates/add.html",
