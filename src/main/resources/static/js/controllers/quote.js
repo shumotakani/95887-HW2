@@ -9,7 +9,12 @@ angular.module('app.controllers', [])
 		});
 })
 .controller('ListQuoteCtrl', function($scope, ListQuote, $stateParams) {
-	$scope.quotes = ListQuote.list({authorName: $stateParams.authorName});
+	console.log($stateParams.authorName);
+	ListQuote.list({authorName: $stateParams.authorName})
+		.$promise.then(function(quote) {
+			$scope.quotes = quote;
+		});
+	//list quotes. Issues a GET to /api/quote/:authorName
 })
 .controller('SaveQuoteCtrl', function($scope, $state, QuoteService) {
     $scope.saveQuote = function() {

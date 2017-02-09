@@ -13,10 +13,10 @@ angular.module('app.services', ['ngResource'])
 
 .factory('ListQuote', function($resource) {
 	return $resource('/api/quote/:authorName', {authorName:'@_authorName'}, {
-		list: {
+		list: { //a customized method to call the Java method in the backend.
 			method: 'GET', 
-			isArray: true,
-			url: '/api/quote/list'
+			url: '/api/quote/list',
+			isArray: true
 		}
 	});
 });
