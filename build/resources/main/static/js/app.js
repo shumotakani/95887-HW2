@@ -22,6 +22,10 @@ app.config(function($urlRouterProvider, $stateProvider) {
         	url: "/list/:authorName",
             templateUrl : "templates/list.html",
             controller: "ListQuoteCtrl"
+//			An other approach to use the controller here 
+//          controller: function($scope, $stateParams, ListQuote) {
+//        	     $scope.quotes = ListQuote($stateParams.authorName);
+//        	}
         })
         .state("add", {
             url: "/add",
